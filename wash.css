@@ -11,7 +11,9 @@ body {
 
 .container{
     position: absolute;
-    z-index: 1;
+    z-index: -1;
+    left: 655px;
+    top: 405px;
 }
 .div img{
     position: relative;
@@ -19,8 +21,8 @@ body {
 }
 .washbasin{
     position: relative;
-    width: 300px;
-    height: 115px;
+    width: 340px;
+    height: 120px;
     
     border-bottom-left-radius: 45%;
     border-bottom-right-radius: 45%;
@@ -50,233 +52,185 @@ body {
 
 .support{
     position: absolute;
-    top: 402px;
-    width: 100px;
+    top: 93px;
+    left: 117px;
+    width: 108px;
     height: 300px;
-    background: #000;
+    background: linear-gradient(to right, #545353, #d9d9d9);
     border-radius: 30px;
-    /* z-index: -1; */
+    z-index: -1;
 }
 
-svg {
-    display: none;
+:root {
+    --container: #BFA69B;
+    --bgColor: white;
+    --tap: #C9CCCB;
+    --tapMouth: #7E7F7F;
+    --water1: #31ADFF;
+    --water2: #007BCC;
+    --glass: #C9CCCB;
+    --glassReflect: white;
+    --ground: #727F79;
   }
   
-  .wrapper {
+ 
+  
+  .water > .waterColors {
     position: relative;
-    width: 100%;
-    max-width: 400px;
-    height: 400px;
+    top: 200px;
+    left: 50px;
+    width: 25px;
+    height: 200px;
+    /* overflow: hidden; */
   }
-  .wrapper-puddle { 
+  
+  .water > .waterColors > .waterColor {
     position: absolute;
-    left: -28px;
-    bottom: 10px;
-    width: 100%;
-    height: 50px;
-    perspective: 1000px;
-    perspective-origin: center center;
-  }
-  /* .puddle {
-    position: absolute;
-    width: 100%;
-    transform-style: preserve-3d;
-  } */
-  /* .p1 {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100px;
-    background: #0049ff;
-    border-radius: 50%;
-    transform: rotateX(50deg) translateZ(50px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  } */
-  .tap {
-    position: relative;
-    display: flex;
-    align-items: center;
-    z-index: 1;
-  }
-  .tap .base {
-    width: 20px;
-    height: 100px;
-    border-radius: 5px;
-    background: #D8D8DB;
-  }
-  .tap .base-2 {
-    width: 20px;
-    height: 60px;
-    border-radius: 0px 5px 5px 0px;
-    background: #535C7B;
-  }
-  .tap .tap-body {
-    position: relative;
-    width: 110px;
-    height: 45px;
-    background: #90A4AE;
-  }
-  .tap .tap-body:before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 13px;
-    height: 13px;
-    background: transparent;
-    border-radius: 0 50%;
-    transform: translate(0, 13px);
-    z-index: 1;
-    box-shadow: 2px -2px 0 0px #90A4AE;
-  }
-  .tap .aerator {
-    position: relative;
-    transform: translateY(18px);
-    width: 45px;
-    height: 80px;
-    background: #90A4AE; 
-    border-radius: 0 50px 0 0;
-    z-index: 1;
-  }
-  .tap .aerator .water {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: -10px;
-    width: 90%;
-    height: 10px;
-    background: #4294FF;
-    border-radius: 0 0 10px 10px;
+    top: -138%;
+    left: 316%;
+    width: 140%;
+    height: 120%;
+    background-image: linear-gradient(0deg,
+      var(--water1) 25%,
+      var(--water2) 25%,
+      var(--water2) 50%,
+      var(--water1) 50%,
+      var(--water1) 75%,
+      var(--water2) 75%);
+    /* background-position: 0px 0px; */
+    background-repeat: repeat-y;
+    animation: waterDrop 30s linear infinite;
+    transform: rotate(180deg);
+    border-top-right-radius: 20%;
+    border-top-left-radius: 20%;
     z-index: -1;
-    -webkit-filter: url('#liquid');
-    filter: url('#liquid');
-  }
-  .tap .aerator .water .drop {
-    position: relative;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 20px;
-    height: 20px;
-    transform: rotate(45deg);
-    border-radius: 0px 10px 10px 10px;
-    background: #4294FF;
-    animation: drop 1.5s cubic-bezier(0.895, 0.030, 0.685, 0.220) infinite;
-  }
-  .tap .tap-body .b1 {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    margin: auto;
-    transform: translateY(-50%);
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    background: #90A4AE;
-  }
-  .tap .tap-body .b1 .child-b1 {
-    position: relative;
-    top: 0;
-    margin: auto;
-    transform: translateY(calc(-100% + 8px));
-    width: 42px;
-    height: 10px;
-    background: #90A4AE;
-    border-radius: 5px 5px 0 0;
-  }
-  .tap .tap-body .key {
-    position: relative;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, calc(-100% - 12px));
-    width: 95px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-  }
-  .tap .tap-body .key .square {
-    position: relative;
-    top: 0;
-    transform: translateY(-8px);
-    width: 40px;
-    height: 30px;
-    background: #DEDFE1;
-    z-index: 1;
-    border-radius: 10px;
-  }
-  .tap .tap-body .key:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 13px;
-    border-radius: 13px;
-    background: #DEDFE1;
-  }
-  .tap .tap-body .key:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 13px;
-    height: 100%;
-    background: #DEDFE1;
-  }
-  .ponch {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #4294FF;
-    transform: scale(0);
-    animation: ponch 1.5s linear infinite;
-  }
-  .circles {
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    border: 1px solid white;
-    border-radius: 50%;
-    transform: scale(0);
-    animation: expand 1.5s 1.5s linear infinite;
   }
   
-  @keyframes ponch {
-    0% {
-      transform: scale(0)
-    }
-    95% {
-     transform: scale(0)
-    }
-    100% {
-      transform: scale(1.2)
+  .tapMouth {
+    width: 50px;
+    height: 10px;
+    margin-top: -90px;
+    margin-left: 100px;
+    background: var(--tapMouth);
+  }
+  
+  .tapNeck1 {
+    width: 140px;
+    height: 50px;
+    border-radius: 0px 180px 0px 0px;
+    margin-top: -58px;
+    margin-left: 35px;
+    background: var(--tap);
+  }
+  
+  .tapNeck2 {
+    width: 50px;
+    height: 180px;
+    border-radius: 180px 0px 0px 0px;
+    margin-top: -48px;
+    margin-left: -14px;
+    background: var(--tap);
+  }
+  
+  .tapNeck3 {
+    width: 50px;
+    height: 50px;
+    margin-top: -80px;
+    margin-left: -50px;
+    background: var(--tap);
+  }
+  
+  .tapNeck3Cover {
+    width: 25px;
+    height: 50px;
+    margin-top: -56px;
+    margin-left: 9px;
+    border-radius: 180px 0px 0px 0px;
+    background: var(--bgColor);
+  }
+  
+  .tapNeck3Cover2 {
+    width: 25px;
+    height: 50px;
+    margin-top: -40px;
+    margin-left: -25px;
+    background: var(--bgColor);
+  }
+  
+  .glass {
+    width: 75px;
+    height: 100px;
+    margin-top: 300px;
+    left: 100px;
+    border: 5px solid grey;
+    border-top: none;
+    background: var(--glass);
+    opacity: 0.4;
+  }
+  
+  .glassReflect {
+    position: absolute;
+    left: 160px;
+    top: 300px;
+    width: 5px;
+    height: 75px;
+    border-radius: 50px;
+    background: var(--glassReflect);
+    opacity: 0.3;
+  }
+  
+  .waterGlass {
+    left: 100px;
+    top: 320px;
+    width: 75px;
+    height: 90px;
+    background: var(--water1);
+    animation-duration: 1s;
+    animation-name: waterRise;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease;
+  }
+  
+  .ground {
+    width: 180px;
+    height: 50px;
+    /* margin-top: 450px; */
+    margin-left: -100px;
+    border-radius: 50px 50px 0px 0px;
+    background: var(--ground);
+  }
+  
+  @keyframes waterDrop {
+    to {
+      background-position: 0 -1000vh;
     }
   }
-  @keyframes expand {
-    0% {
-      transform: scale(0)
+  
+  @keyframes waterRise {
+    from {
+      top: 310px;
     }
-    50% {
-      opacity: 1;
-      transform: scale(1)
-    }
-    100% {
-      opacity: 0;
-      transform: scale(2)
+    to {
+      top: 350px;
     }
   }
-  @keyframes drop {
-    0% {
-      top: 0;
-    }
-    99.9% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-      top: 232px;
-    }
+  
+  .knob {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(145deg, #555, #222);
+    border-radius: 50%;
+    bottom: 325px;
+    right: 780px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.7),
+                2px 2px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
   }
+    
+
+
+
+
+  
